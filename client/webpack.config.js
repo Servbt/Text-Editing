@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
-const { GenerateSW } = require('workbox-webpack-plugin');
+// const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -21,9 +21,9 @@ module.exports = () => {
         title: 'Just Another Text Editor'
       }),
 
-      new GenerateSW(),
+      // new GenerateSW(),
       new InjectManifest({
-        swSrc: './src/sw.js',
+        swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
 
@@ -37,7 +37,7 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('../images/logo.png'),
+            src: path.resolve('./src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
