@@ -9,3 +9,5 @@ Uncaught (in promise) DOMException: Failed to execute 'transaction' on 'IDBDatab
 The editor is also loosing focus whenever a request is being made. 
 I also have to get the functionality for the manifest so that the application can be downloaded.
  
+ 
+[here is the heroku deployment](https://immense-reef-22213.herokuapp.com/)
