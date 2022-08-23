@@ -10,7 +10,6 @@ module.exports = () => {
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js',
-      header: './src/js/header.js',
       editor: './src/js/editor.js'
 
     },
@@ -26,10 +25,12 @@ module.exports = () => {
       new MiniCssExtractPlugin(),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swDest: 'src-sw.js',
       }),
 
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'jate',
         short_name: 'jate',
         description: 'kinda like notepad!',
@@ -39,7 +40,7 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('./src/images/logo.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
