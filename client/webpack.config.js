@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
@@ -8,7 +9,10 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      header: './src/js/header.js',
+      editor: './src/js/editor.js'
+
     },
     output: {
       filename: '[name].bundle.js',
@@ -19,7 +23,7 @@ module.exports = () => {
         template: './index.html',
         title: 'Just Another Text Editor'
       }),
-
+      new MiniCssExtractPlugin(),
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'service-worker.js',
@@ -47,7 +51,7 @@ module.exports = () => {
       rules: [
         {
           test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
         },
         {
           test: /\.m?js$/,

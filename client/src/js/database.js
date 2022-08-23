@@ -1,5 +1,4 @@
 import { openDB } from 'idb';
-initdb();
 
 const initdb = async () =>
   openDB('jate', 1, {
@@ -33,3 +32,4 @@ export const getDb = async () => {
 
 }
 
+initdb();
