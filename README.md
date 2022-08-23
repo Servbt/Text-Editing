@@ -2,7 +2,7 @@
 
 ## service worker fixing
 
-Currently, the database it being created through indexeddb but there's an error when it comes to fulfilling a transaction for the database (object store).
+Currently, the database is being created through indexeddb but there's an error when it comes to fulfilling a transaction for the database (object store).
 ```
 Uncaught (in promise) DOMException: Failed to execute 'transaction' on 'IDBDatabase': One of the specified object stores was not found.
 ```
